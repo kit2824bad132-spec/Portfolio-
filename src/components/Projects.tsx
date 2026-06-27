@@ -141,7 +141,7 @@ export default function Projects() {
                       rel={p.demoUrl ? 'noopener noreferrer' : undefined}
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${c.btn}`}
                     >
-                      <ExternalLink size={15} /> Live Demo
+                      <ExternalLink size={15} /> Demo
                     </a>
                   </div>
                 </div>
