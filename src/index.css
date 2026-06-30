@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @layer base {
   :root {
     --color-bg: #ffffff;
@@ -13,15 +15,27 @@
     --color-rose: #f43f5e;
   }
 
+  .dark {
+    --color-bg: #0a0a0f;
+    --color-surface: #12121a;
+    --color-card: #16161f;
+    --color-border: #2a1a1a;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
+    background-color: var(--color-bg);
     color: #111827;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    color: #f1f5f9;
   }
 
   h1, h2, h3, h4, h5 {
@@ -31,55 +45,81 @@
   code, .mono {
     font-family: 'JetBrains Mono', monospace;
   }
-}
 
-@layer utilities {
-  .gradient-text {
-    background: linear-gradient(135deg, #dc2626 0%, #f43f5e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .section-heading {
-    position: relative;
-    display: inline-block;
-  }
-
-  .section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, #dc2626, #f43f5e);
-    border-radius: 2px;
-  }
-
-  .glow-red {
-    box-shadow: 0 0 30px rgba(220, 38, 38, 0.15);
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
   }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #fff5f5;
-}
-::-webkit-scrollbar-thumb {
-  background: #fca5a5;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #dc2626;
+/* ===================== DARK MODE OVERRIDES ===================== */
+.dark .bg-white { background-color: #16161f !important; }
+.dark .bg-red-50 { background-color: #1a0f10 !important; }
+.dark .bg-red-50\/40 { background-color: rgba(26,15,16,0.5) !important; }
+.dark .text-gray-900 { color: #f1f5f9 !important; }
+.dark .text-gray-800 { color: #e2e8f0 !important; }
+.dark .text-gray-700 { color: #cbd5e1 !important; }
+.dark .text-gray-600 { color: #94a3b8 !important; }
+.dark .text-gray-500 { color: #64748b !important; }
+.dark .text-gray-400 { color: #475569 !important; }
+.dark .border-gray-100 { border-color: #1e1e2e !important; }
+.dark .border-gray-200 { border-color: #2a2a3e !important; }
+.dark .border-red-100 { border-color: #2a1010 !important; }
+.dark .border-red-200 { border-color: #3f1515 !important; }
+.dark .border-rose-200 { border-color: #3f1520 !important; }
+.dark .shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.4) !important; }
+
+/* ===================== GRADIENT TEXT ===================== */
+.gradient-text {
+  background: linear-gradient(135deg, #dc2626 0%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Animations */
+.dark .gradient-text {
+  background: linear-gradient(135deg, #f87171 0%, #fb7185 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===================== SECTION HEADING ===================== */
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #dc2626, #f43f5e);
+  border-radius: 2px;
+}
+
+/* ===================== GLOW ===================== */
+.glow-red {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.15);
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fff5f5; }
+.dark ::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #fca5a5; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+
+/* ===================== KEYFRAMES ===================== */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -103,13 +143,26 @@
   to   { transform: rotate(360deg); }
 }
 
-.animate-fade-in-up  { animation: fadeInUp 0.6s ease-out forwards; }
-.animate-float       { animation: float 4s ease-in-out infinite; }
-.animate-pulse-glow  { animation: pulse-glow 2s ease-in-out infinite; }
-.animate-spin-slow   { animation: spin-slow 20s linear infinite; }
-.cursor-blink        { animation: blink 1s step-end infinite; }
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
 
-/* Grid pattern */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ===================== ANIMATION CLASSES ===================== */
+.animate-fade-in-up   { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-fade-in-down { animation: fadeInDown 0.6s ease-out forwards; }
+.animate-float        { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-spin-slow    { animation: spin-slow 20s linear infinite; }
+.animate-slide-in     { animation: slideInRight 0.5s ease-out forwards; }
+.cursor-blink         { animation: blink 1s step-end infinite; }
+
+/* ===================== GRID PATTERN ===================== */
 .grid-bg {
   background-image:
     linear-gradient(rgba(220, 38, 38, 0.04) 1px, transparent 1px),
@@ -117,16 +170,24 @@
   background-size: 40px 40px;
 }
 
-/* Skill badge hover */
+.dark .grid-bg {
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ===================== SKILL BADGE ===================== */
 .skill-badge {
   transition: all 0.2s ease;
+  cursor: default;
 }
 .skill-badge:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(220, 38, 38, 0.15);
 }
 
-/* Project card */
+/* ===================== PROJECT CARD ===================== */
 .project-card {
   transition: all 0.3s ease;
 }
@@ -135,7 +196,7 @@
   box-shadow: 0 16px 48px rgba(220, 38, 38, 0.1), 0 0 0 1px rgba(220, 38, 38, 0.15);
 }
 
-/* Nav link */
+/* ===================== NAV LINK ===================== */
 .nav-link {
   position: relative;
   transition: color 0.2s ease;
@@ -155,3 +216,51 @@
 .nav-link.active::after {
   width: 100%;
 }
+
+/* ===================== GLASSMORPHISM ===================== */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(22, 22, 31, 0.85);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===================== SCROLL REVEAL ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== ADMIN STYLES ===================== */
+.admin-sidebar-item {
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+.admin-sidebar-item:hover,
+.admin-sidebar-item.active {
+  border-left-color: #dc2626;
+  background: rgba(220,38,38,0.07);
+}
+
+.admin-card {
+  transition: all 0.3s ease;
+}
+.admin-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.12);
+}
+
+/* Dark mode admin */
+.dark .admin-bg { background-color: #0a0a0f; }
+.dark .admin-surface { background-color: #12121a; }
+.dark .admin-card-bg { background-color: #16161f; border-color: #1e1e2e; }

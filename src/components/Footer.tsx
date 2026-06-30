@@ -1,13 +1,25 @@
-import { Code2 } from 'lucide-react';
+import { Code2, Heart } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
-    <footer className="border-t border-red-100 bg-red-50/40 py-8 px-6">
-      <div className="max-w-6xl mx-auto flex items-center justify-center gap-2">
-        <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center">
-          <Code2 size={14} className="text-white" />
+    <footer className={`border-t py-8 px-6 ${
+      isDark ? 'bg-[#0a0a0f] border-white/5' : 'bg-red-50/40 border-red-100'
+    }`}>
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-red-600 to-rose-500 flex items-center justify-center">
+            <Code2 size={13} className="text-white" />
+          </div>
+          <span className={`text-sm font-bold ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>Sabarivasan S</span>
         </div>
-        <span className="text-gray-600 text-sm font-medium">SabariVasan S</span>
+
+        <p className={`text-xs ${isDark ? 'text-slate-600' : 'text-gray-400'}`}>
+          © {new Date().getFullYear()} Sabarivasan S. All rights reserved.
+        </p>
       </div>
     </footer>
   );
