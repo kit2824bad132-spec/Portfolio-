@@ -111,8 +111,8 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const text = isDark ? 'text-slate-100' : 'text-gray-900';
   const muted = isDark ? 'text-slate-400' : 'text-gray-500';
   const inputCls = isDark
-    ? 'bg-[#1a1a28] border-white/10 text-slate-100 placeholder-slate-600 focus:border-red-500'
-    : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400 focus:border-red-500';
+    ? 'bg-[#1a1a28] border-white/10 text-slate-100 placeholder-slate-600 focus:border-blue-500'
+    : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400 focus:border-blue-500';
 
   const navItems: { id: View; label: string; icon: typeof LayoutDashboard }[] = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -127,7 +127,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className={`flex items-center gap-3 px-6 py-5 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-red-600 to-rose-500 flex items-center justify-center">
+        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center">
           <Code2 size={16} className="text-white" />
         </div>
         <div>
@@ -144,7 +144,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
             onClick={() => { setView(id); setSidebarOpen(false); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
               view === id
-                ? 'bg-gradient-to-r from-red-600 to-rose-500 text-white shadow-lg shadow-red-500/20'
+                ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/20'
                 : `${muted} hover:${text} ${isDark ? 'hover:bg-white/5' : 'hover:bg-gray-50'}`
             }`}
           >
@@ -159,7 +159,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
       <div className={`px-3 py-4 border-t ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all"
         >
           <LogOut size={17} />
           Logout
@@ -205,7 +205,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
             <div className="space-y-6 animate-fade-in-up">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  { label: 'Projects', value: projects.length, icon: FolderOpen, color: 'from-red-600 to-rose-500' },
+                  { label: 'Projects', value: projects.length, icon: FolderOpen, color: 'from-blue-600 to-blue-500' },
                   { label: 'Certifications', value: certs.length, icon: Award, color: 'from-violet-600 to-purple-500' },
                   { label: 'Messages', value: messages.length, icon: MessageSquare, color: 'from-blue-600 to-cyan-500' },
                   { label: 'Resume', value: resumeFile ? '✓' : '—', icon: FileUp, color: 'from-emerald-600 to-teal-500' },
@@ -232,7 +232,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                     <button
                       key={label}
                       onClick={action}
-                      className="flex items-center justify-between gap-2 px-4 py-3 rounded-xl border border-red-200 dark:border-red-900/50 text-red-600 text-sm font-medium hover:bg-red-50 dark:hover:bg-red-950/30 transition-all"
+                      className="flex items-center justify-between gap-2 px-4 py-3 rounded-xl border border-blue-200 dark:border-blue-900/50 text-blue-600 text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all"
                     >
                       {label}
                       <ChevronRight size={14} />
@@ -250,7 +250,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <p className={`text-sm ${muted}`}>{projects.length} projects</p>
                 <button
                   onClick={() => setShowAddProject(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-500 text-white text-sm font-semibold shadow-lg shadow-red-500/20 hover:opacity-90 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-lg shadow-blue-500/20 hover:opacity-90 transition-all"
                 >
                   <Plus size={15} /> Add Project
                 </button>
@@ -260,10 +260,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <div className={`rounded-2xl border p-5 ${card} animate-fade-in-up`}>
                   <h3 className={`font-bold mb-4 ${text}`}>New Project</h3>
                   <div className="space-y-3">
-                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} placeholder="Project Title" value={newProject.title} onChange={e => setNewProject({ ...newProject, title: e.target.value })} />
-                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} placeholder="Tech Stack (comma separated)" value={newProject.stack} onChange={e => setNewProject({ ...newProject, stack: e.target.value })} />
+                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} placeholder="Project Title" value={newProject.title} onChange={e => setNewProject({ ...newProject, title: e.target.value })} />
+                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} placeholder="Tech Stack (comma separated)" value={newProject.stack} onChange={e => setNewProject({ ...newProject, stack: e.target.value })} />
                     <div className="flex gap-2">
-                      <button onClick={addProject} className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-all">Save</button>
+                      <button onClick={addProject} className="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-all">Save</button>
                       <button onClick={() => setShowAddProject(false)} className={`px-4 py-2 rounded-xl border text-sm ${muted} ${isDark ? 'border-white/10' : 'border-gray-200'} hover:opacity-80`}>Cancel</button>
                     </div>
                   </div>
@@ -274,10 +274,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <div key={p.id} className={`rounded-2xl border p-5 ${card}`}>
                   {editingProject?.id === p.id ? (
                     <div className="space-y-3">
-                      <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} value={editingProject.title} onChange={e => setEditingProject({ ...editingProject, title: e.target.value })} />
-                      <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} value={editingProject.stack.join(', ')} onChange={e => setEditingProject({ ...editingProject, stack: e.target.value.split(',').map(s => s.trim()) })} />
+                      <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} value={editingProject.title} onChange={e => setEditingProject({ ...editingProject, title: e.target.value })} />
+                      <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} value={editingProject.stack.join(', ')} onChange={e => setEditingProject({ ...editingProject, stack: e.target.value.split(',').map(s => s.trim()) })} />
                       <div className="flex gap-2">
-                        <button onClick={saveProject} className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-all">Save</button>
+                        <button onClick={saveProject} className="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-all">Save</button>
                         <button onClick={() => setEditingProject(null)} className={`px-4 py-2 rounded-xl border text-sm ${muted} ${isDark ? 'border-white/10' : 'border-gray-200'}`}>Cancel</button>
                       </div>
                     </div>
@@ -290,7 +290,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                       </div>
                       <div className="flex gap-2 flex-shrink-0">
                         <button onClick={() => setEditingProject(p)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-white/5' : 'hover:bg-gray-50'} text-blue-500 transition-all`}><Pencil size={15} /></button>
-                        <button onClick={() => deleteProject(p.id)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-red-950/30' : 'hover:bg-red-50'} text-red-500 transition-all`}><Trash2 size={15} /></button>
+                        <button onClick={() => deleteProject(p.id)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-blue-950/30' : 'hover:bg-blue-50'} text-blue-500 transition-all`}><Trash2 size={15} /></button>
                       </div>
                     </div>
                   )}
@@ -304,7 +304,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
             <div className="space-y-4 animate-fade-in-up">
               <div className="flex items-center justify-between">
                 <p className={`text-sm ${muted}`}>{certs.length} certifications</p>
-                <button onClick={() => setShowAddCert(true)} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-500 text-white text-sm font-semibold shadow-lg shadow-red-500/20 hover:opacity-90 transition-all">
+                <button onClick={() => setShowAddCert(true)} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-lg shadow-blue-500/20 hover:opacity-90 transition-all">
                   <Plus size={15} /> Add Cert
                 </button>
               </div>
@@ -313,10 +313,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <div className={`rounded-2xl border p-5 ${card} animate-fade-in-up`}>
                   <h3 className={`font-bold mb-4 ${text}`}>New Certification</h3>
                   <div className="space-y-3">
-                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} placeholder="Certificate Title" value={newCert.title} onChange={e => setNewCert({ ...newCert, title: e.target.value })} />
-                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} placeholder="Issuing Organization" value={newCert.issuer} onChange={e => setNewCert({ ...newCert, issuer: e.target.value })} />
+                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} placeholder="Certificate Title" value={newCert.title} onChange={e => setNewCert({ ...newCert, title: e.target.value })} />
+                    <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} placeholder="Issuing Organization" value={newCert.issuer} onChange={e => setNewCert({ ...newCert, issuer: e.target.value })} />
                     <div className="flex gap-2">
-                      <button onClick={addCert} className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-all">Save</button>
+                      <button onClick={addCert} className="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-all">Save</button>
                       <button onClick={() => setShowAddCert(false)} className={`px-4 py-2 rounded-xl border text-sm ${muted} ${isDark ? 'border-white/10' : 'border-gray-200'}`}>Cancel</button>
                     </div>
                   </div>
@@ -328,23 +328,23 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   <div key={c.id} className={`rounded-2xl border p-5 ${card}`}>
                     {editingCert?.id === c.id ? (
                       <div className="space-y-3">
-                        <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} value={editingCert.title} onChange={e => setEditingCert({ ...editingCert, title: e.target.value })} />
-                        <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`} value={editingCert.issuer} onChange={e => setEditingCert({ ...editingCert, issuer: e.target.value })} />
+                        <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} value={editingCert.title} onChange={e => setEditingCert({ ...editingCert, title: e.target.value })} />
+                        <input className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`} value={editingCert.issuer} onChange={e => setEditingCert({ ...editingCert, issuer: e.target.value })} />
                         <div className="flex gap-2">
-                          <button onClick={saveCert} className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-all">Save</button>
+                          <button onClick={saveCert} className="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-all">Save</button>
                           <button onClick={() => setEditingCert(null)} className={`px-4 py-2 rounded-xl border text-sm ${muted} ${isDark ? 'border-white/10' : 'border-gray-200'}`}>Cancel</button>
                         </div>
                       </div>
                     ) : (
                       <div className="flex items-start justify-between">
                         <div>
-                          <Award size={16} className="text-red-500 mb-2" />
+                          <Award size={16} className="text-blue-500 mb-2" />
                           <p className={`font-semibold text-sm ${text}`}>{c.title}</p>
                           <p className={`text-xs mt-1 ${muted}`}>{c.issuer}</p>
                         </div>
                         <div className="flex gap-2">
                           <button onClick={() => setEditingCert(c)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-white/5' : 'hover:bg-gray-50'} text-blue-500 transition-all`}><Pencil size={14} /></button>
-                          <button onClick={() => deleteCert(c.id)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-red-950/30' : 'hover:bg-red-50'} text-red-500 transition-all`}><Trash2 size={14} /></button>
+                          <button onClick={() => deleteCert(c.id)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-blue-950/30' : 'hover:bg-blue-50'} text-blue-500 transition-all`}><Trash2 size={14} /></button>
                         </div>
                       </div>
                     )}
@@ -361,7 +361,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
               {skillGroups.map(group => (
                 <div key={group.id} className={`rounded-2xl border p-5 ${card}`}>
                   <div className="flex items-center gap-2 mb-4">
-                    <Wrench size={15} className="text-red-500" />
+                    <Wrench size={15} className="text-blue-500" />
                     <h3 className={`font-bold text-sm ${text}`}>{group.category}</h3>
                     <span className={`ml-auto text-xs ${muted}`}>{group.skills.length} skills</span>
                   </div>
@@ -372,20 +372,20 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                         {editingSkill?.groupId === group.id && editingSkill?.index === idx ? (
                           <div className="flex items-center gap-1">
                             <input
-                              className={`px-2 py-1 rounded-lg border text-xs w-28 focus:outline-none focus:ring-1 focus:ring-red-500 ${inputCls}`}
+                              className={`px-2 py-1 rounded-lg border text-xs w-28 focus:outline-none focus:ring-1 focus:ring-blue-500 ${inputCls}`}
                               value={editingSkill.value}
                               onChange={e => setEditingSkill({ ...editingSkill, value: e.target.value })}
                             />
-                            <button onClick={saveSkill} className="px-2 py-1 rounded-lg bg-red-600 text-white text-xs">✓</button>
+                            <button onClick={saveSkill} className="px-2 py-1 rounded-lg bg-blue-600 text-white text-xs">✓</button>
                             <button onClick={() => setEditingSkill(null)} className={`px-2 py-1 rounded-lg border text-xs ${muted} ${isDark ? 'border-white/10' : 'border-gray-200'}`}>✕</button>
                           </div>
                         ) : (
                           <span className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${
-                            isDark ? 'bg-red-950/30 text-red-400 border-red-800/40' : 'bg-red-50 text-red-700 border-red-200'
+                            isDark ? 'bg-blue-950/30 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200'
                           }`}>
                             {skill}
                             <button onClick={() => setEditingSkill({ groupId: group.id, index: idx, value: skill })} className="text-blue-400 hover:text-blue-600 transition-colors"><Pencil size={10} /></button>
-                            <button onClick={() => deleteSkill(group.id, idx)} className="text-red-400 hover:text-red-600 transition-colors"><X size={10} /></button>
+                            <button onClick={() => deleteSkill(group.id, idx)} className="text-blue-400 hover:text-blue-600 transition-colors"><X size={10} /></button>
                           </span>
                         )}
                       </div>
@@ -395,7 +395,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   {/* Add new skill */}
                   <div className="flex gap-2">
                     <input
-                      className={`flex-1 px-3 py-2 rounded-xl border text-xs focus:outline-none focus:ring-2 focus:ring-red-500/30 ${inputCls}`}
+                      className={`flex-1 px-3 py-2 rounded-xl border text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${inputCls}`}
                       placeholder={`Add skill to ${group.category}...`}
                       value={newSkillInputs[group.id] || ''}
                       onChange={e => setNewSkillInputs(prev => ({ ...prev, [group.id]: e.target.value }))}
@@ -403,7 +403,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                     />
                     <button
                       onClick={() => addSkill(group.id)}
-                      className="flex items-center gap-1 px-3 py-2 rounded-xl bg-red-600 text-white text-xs font-semibold hover:bg-red-700 transition-all"
+                      className="flex items-center gap-1 px-3 py-2 rounded-xl bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all"
                     >
                       <Plus size={13} /> Add
                     </button>
@@ -421,7 +421,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <div key={m.id} className={`rounded-2xl border p-5 ${card}`}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-600 to-rose-500 flex items-center justify-center text-white text-sm font-bold">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center text-white text-sm font-bold">
                         {m.name[0]}
                       </div>
                       <div>
@@ -433,7 +433,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   </div>
                   <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-gray-600'}`}>{m.message}</p>
                   <div className="flex gap-2 mt-3">
-                    <a href={`mailto:${m.email}`} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600 text-xs font-medium hover:opacity-80 transition-all">
+                    <a href={`mailto:${m.email}`} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-600 text-xs font-medium hover:opacity-80 transition-all">
                       <Eye size={12} /> Reply
                     </a>
                   </div>
@@ -446,7 +446,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
           {view === 'resume' && (
             <div className="space-y-4 animate-fade-in-up">
               <div className={`rounded-2xl border p-8 ${card} text-center`}>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-red-500/25">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/25">
                   <FileUp size={28} className="text-white" />
                 </div>
                 <h3 className={`font-bold text-lg mb-2 ${text}`}>Upload Resume</h3>
@@ -462,7 +462,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                       if (file) setResumeFile(file.name);
                     }}
                   />
-                  <div className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-dashed border-red-300 text-red-600 text-sm font-medium hover:bg-red-50 dark:hover:bg-red-950/30 transition-all`}>
+                  <div className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-dashed border-blue-300 text-blue-600 text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all`}>
                     <Upload size={16} />
                     Choose File
                   </div>
@@ -482,7 +482,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   href="https://drive.google.com/file/d/1DeKhsV9okXe9p91lrFEfWbimhTQ8EFX-/view?usp=drivesdk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-red-600 text-sm hover:underline"
+                  className="flex items-center gap-2 text-blue-600 text-sm hover:underline"
                 >
                   <Eye size={14} /> View on Google Drive
                 </a>

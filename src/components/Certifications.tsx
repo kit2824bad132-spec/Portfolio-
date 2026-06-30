@@ -11,19 +11,19 @@ export default function Certifications() {
 
   const getColors = (color: string) => {
     if (color === 'red') return {
-      card: isDark ? 'hover:border-red-800' : 'hover:border-red-300 hover:shadow-red-50',
-      icon: isDark ? 'text-red-400 bg-red-950/50 border-red-800/50' : 'text-red-600 bg-red-50 border-red-200',
-      badge: isDark ? 'bg-red-950/40 text-red-400 border-red-800/40' : 'bg-red-50 text-red-700 border-red-200',
+      card: isDark ? 'hover:border-blue-800' : 'hover:border-blue-300 hover:shadow-blue-50',
+      icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
+      badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
     };
     return {
-      card: isDark ? 'hover:border-rose-800' : 'hover:border-rose-300 hover:shadow-rose-50',
-      icon: isDark ? 'text-rose-400 bg-rose-950/50 border-rose-800/50' : 'text-rose-600 bg-rose-50 border-rose-200',
-      badge: isDark ? 'bg-rose-950/40 text-rose-400 border-rose-800/40' : 'bg-rose-50 text-rose-700 border-rose-200',
+      card: isDark ? 'hover:border-blue-800' : 'hover:border-blue-300 hover:shadow-blue-50',
+      icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
+      badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
     };
   };
 
   return (
-    <section id="certifications" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-red-50/30'}`}>
+    <section id="certifications" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-blue-50/30'}`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 reveal">
           <h2 className={`text-3xl sm:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>

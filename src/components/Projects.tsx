@@ -16,18 +16,18 @@ export default function Projects() {
 
   const getColors = (accent: string) => {
     if (accent === 'red') return {
-      tag: isDark ? 'bg-red-950/40 text-red-400 border-red-800/40' : 'bg-red-50 text-red-700 border-red-200',
-      btn: isDark ? 'bg-red-950/40 border-red-800/40 text-red-400 hover:bg-red-950/60' : 'bg-red-50 border-red-200 text-red-600 hover:bg-red-100',
-      dot: isDark ? 'bg-red-500' : 'bg-red-500',
-      iconBg: isDark ? 'text-red-400' : 'text-red-600',
-      overlay: 'from-red-500/30 to-transparent',
+      tag: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
+      btn: isDark ? 'bg-blue-950/40 border-blue-800/40 text-blue-400 hover:bg-blue-950/60' : 'bg-blue-50 border-blue-200 text-blue-600 hover:bg-blue-100',
+      dot: isDark ? 'bg-blue-500' : 'bg-blue-500',
+      iconBg: isDark ? 'text-blue-400' : 'text-blue-600',
+      overlay: 'from-blue-500/30 to-transparent',
     };
     return {
-      tag: isDark ? 'bg-rose-950/40 text-rose-400 border-rose-800/40' : 'bg-rose-50 text-rose-700 border-rose-200',
-      btn: isDark ? 'bg-rose-950/40 border-rose-800/40 text-rose-400 hover:bg-rose-950/60' : 'bg-rose-50 border-rose-200 text-rose-600 hover:bg-rose-100',
-      dot: isDark ? 'bg-rose-500' : 'bg-rose-500',
-      iconBg: isDark ? 'text-rose-400' : 'text-rose-600',
-      overlay: 'from-rose-500/30 to-transparent',
+      tag: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
+      btn: isDark ? 'bg-blue-950/40 border-blue-800/40 text-blue-400 hover:bg-blue-950/60' : 'bg-blue-50 border-blue-200 text-blue-600 hover:bg-blue-100',
+      dot: isDark ? 'bg-blue-500' : 'bg-blue-500',
+      iconBg: isDark ? 'text-blue-400' : 'text-blue-600',
+      overlay: 'from-blue-500/30 to-transparent',
     };
   };
 

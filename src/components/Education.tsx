@@ -32,14 +32,14 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 px-6 bg-red-50/40">
+    <section id="education" className="py-24 px-6 bg-blue-50/40">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Academic Journey</h2>
         </div>
 
         <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-red-400/50 via-rose-300/30 to-transparent" />
+          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-blue-400/50 via-blue-300/30 to-transparent" />
 
           <div className="space-y-8">
             {education.map((edu, i) => {
@@ -48,14 +48,14 @@ export default function Education() {
                 <div key={i} className="relative pl-16">
                   <div className={`absolute left-0 w-12 h-12 rounded-xl border flex items-center justify-center ${
                     edu.current
-                      ? 'bg-red-50 border-red-300 animate-pulse-glow'
+                      ? 'bg-blue-50 border-blue-300 animate-pulse-glow'
                       : 'bg-white border-gray-200'
                   }`}>
-                    <Icon size={20} className={edu.current ? 'text-red-600' : 'text-gray-400'} />
+                    <Icon size={20} className={edu.current ? 'text-blue-600' : 'text-gray-400'} />
                   </div>
 
                   <div className={`bg-white border rounded-2xl p-6 transition-all duration-300 hover:shadow-md ${
-                    edu.current ? 'border-red-200 hover:border-red-300' : 'border-gray-100 hover:border-gray-200'
+                    edu.current ? 'border-blue-200 hover:border-blue-300' : 'border-gray-100 hover:border-gray-200'
                   }`}>
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div>
@@ -72,8 +72,8 @@ export default function Education() {
 
                     <div className="flex items-center gap-3">
                       {edu.current && (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
                           Current
                         </span>
                       )}

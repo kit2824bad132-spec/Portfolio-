@@ -17,55 +17,38 @@ export default function About() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
 
-          {/* Left: image + stats */}
-          <div className="relative reveal">
-            <div className="relative mx-auto w-72 h-72 md:w-80 md:h-80">
-              <div className={`absolute inset-0 rounded-full border border-dashed animate-spin-slow ${
-                isDark ? 'border-red-800/50' : 'border-red-200'
-              }`} />
-              <div
-                className={`absolute -inset-4 rounded-full border border-dashed ${
-                  isDark ? 'border-rose-900/30' : 'border-rose-100'
-                }`}
-                style={{ animation: 'spin 30s linear infinite reverse' }}
+          {/* Left: Square Image with dotted corners */}
+          <div className="relative reveal px-8 py-8 w-full max-w-sm mx-auto md:max-w-none">
+            {/* Dotted pattern - top right */}
+            <div className={`absolute top-0 right-0 w-24 h-24 rounded-tl-xl rounded-br-xl ${isDark ? 'bg-blue-900/40' : 'bg-blue-100'}`} style={{ backgroundImage: 'radial-gradient(circle, currentColor 2px, transparent 2px)', backgroundSize: '12px 12px', color: isDark ? '#3b82f6' : '#2563eb' }} />
+            
+            {/* Dotted pattern - bottom left */}
+            <div className={`absolute bottom-0 left-0 w-24 h-24 rounded-tr-xl rounded-bl-xl ${isDark ? 'bg-blue-900/40' : 'bg-blue-100'}`} style={{ backgroundImage: 'radial-gradient(circle, currentColor 2px, transparent 2px)', backgroundSize: '12px 12px', color: isDark ? '#3b82f6' : '#2563eb' }} />
+            
+            <div className="relative z-10 w-full aspect-square overflow-hidden shadow-2xl">
+              <img
+                src="/profile.jpg"
+                alt="Sabarivasan S"
+                className="w-full h-full object-cover object-top"
               />
-              <div className={`absolute inset-4 rounded-full overflow-hidden border ${
-                isDark ? 'border-red-900/40' : 'border-red-100'
-              }`}>
-                <img
-                  src="/profile.jpg"
-                  alt="Sabarivasan S"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-            </div>
-
-            <div className="mt-10 grid grid-cols-4 gap-3">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className={`border rounded-xl p-3 text-center transition-all hover:scale-105 ${
-                    isDark
-                      ? 'bg-[#16161f] border-[#1e1e2e] hover:border-red-900'
-                      : 'bg-red-50 border-red-100 hover:border-red-300'
-                  }`}
-                >
-                  <p className="text-red-500 font-bold text-xl">{s.value}</p>
-                  <p className={`text-xs mt-1 leading-tight ${isDark ? 'text-slate-500' : 'text-gray-400'}`}>{s.label}</p>
-                </div>
-              ))}
             </div>
           </div>
 
-          {/* Right: text */}
+          {/* Right: text content */}
           <div className="reveal">
-            <h2 className={`text-3xl sm:text-4xl font-bold mb-6 section-heading ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              Who I Am
+            {/* ABOUT ME badge */}
+            <div className={`inline-block px-4 py-1.5 rounded mb-4 text-xs font-bold tracking-wider text-white ${isDark ? 'bg-blue-500' : 'bg-blue-600'}`}>
+              ABOUT ME
+            </div>
+
+            <h2 className={`text-3xl sm:text-4xl font-bold mb-6 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              Why hire me for your next project?
             </h2>
-            <div className={`mt-8 space-y-4 text-base leading-relaxed ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>
+
+            <div className={`space-y-4 text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>
               <p>
                 I'm a motivated B.Tech student specializing in{' '}
-                <span className="text-red-500 font-medium">Artificial Intelligence & Data Science</span>{' '}
+                <span className="text-blue-500 font-medium">Artificial Intelligence & Data Science</span>{' '}
                 at Kalaignar Karunanidhi Institute of Technology, Coimbatore.
               </p>
               <p>
@@ -80,24 +63,53 @@ export default function About() {
               </p>
             </div>
 
-            <div className="mt-8 space-y-3">
+            <div className="mt-8 space-y-3 mb-10">
               {[
                 { icon: GraduationCap, text: 'B.Tech AI & Data Science — KIT, Coimbatore' },
                 { icon: Zap, text: 'Full-Stack & AI/ML Development' },
                 { icon: User, text: 'Competitive Programmer & Hackathon Participant' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-lg border flex items-center justify-center flex-shrink-0 ${
-                    isDark ? 'bg-red-950/40 border-red-800/50' : 'bg-red-50 border-red-100'
+                  <div className={`w-8 h-8 rounded border flex items-center justify-center flex-shrink-0 ${
+                    isDark ? 'bg-blue-950/40 border-blue-800/50' : 'bg-blue-50 border-blue-100'
                   }`}>
-                    <Icon size={15} className="text-red-500" />
+                    <Icon size={15} className="text-blue-500" />
                   </div>
-                  <span className={`text-sm ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>{text}</span>
+                  <span className={`text-sm font-medium ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>{text}</span>
                 </div>
               ))}
             </div>
+
+            <a
+              href="https://drive.google.com/file/d/1DeKhsV9okXe9p91lrFEfWbimhTQ8EFX-/view?usp=drivesdk"
+              target="_blank" rel="noopener noreferrer"
+              className={`inline-block px-8 py-3 rounded text-sm font-bold tracking-wider text-white transition-all shadow-md ${
+                isDark ? 'bg-blue-500 hover:bg-blue-600' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30'
+              }`}
+            >
+              DOWNLOAD CV
+            </a>
           </div>
+
         </div>
+
+        {/* Stats Grid at the bottom */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className={`border rounded p-4 text-center transition-all hover:scale-105 shadow-sm ${
+                isDark
+                  ? 'bg-[#16161f] border-[#1e1e2e] hover:border-blue-900'
+                  : 'bg-white border-gray-100 hover:border-blue-200'
+              }`}
+            >
+              <p className="text-blue-600 font-bold text-2xl">{s.value}</p>
+              <p className={`text-xs mt-1 font-semibold uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-gray-400'}`}>{s.label}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

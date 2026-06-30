@@ -12,24 +12,24 @@ export default function Skills() {
   const isDark = theme === 'dark';
 
   const cardBase = isDark
-    ? 'bg-[#16161f] border-[#1e1e2e] hover:border-red-900'
-    : 'bg-white border-gray-100 hover:border-red-200 hover:shadow-red-50';
+    ? 'bg-[#16161f] border-[#1e1e2e] hover:border-blue-900'
+    : 'bg-white border-gray-100 hover:border-blue-200 hover:shadow-blue-50';
 
   const getAccent = (accent: string, isDark: boolean) => {
     if (accent === 'red') {
       return {
-        icon: isDark ? 'text-red-400 bg-red-950/50 border-red-800/50' : 'text-red-600 bg-red-50 border-red-200',
-        badge: isDark ? 'bg-red-950/40 text-red-400 border-red-800/40' : 'bg-red-50 text-red-700 border-red-200',
+        icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
+        badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
       };
     }
     return {
-      icon: isDark ? 'text-rose-400 bg-rose-950/50 border-rose-800/50' : 'text-rose-600 bg-rose-50 border-rose-200',
-      badge: isDark ? 'bg-rose-950/40 text-rose-400 border-rose-800/40' : 'bg-rose-50 text-rose-700 border-rose-200',
+      icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
+      badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
     };
   };
 
   return (
-    <section id="skills" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-red-50/40'}`}>
+    <section id="skills" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-blue-50/40'}`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 reveal">
           <h2 className={`text-3xl sm:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>

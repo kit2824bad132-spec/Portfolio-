@@ -39,42 +39,46 @@ export default function Hero() {
   }, [displayed, typing, roleIndex]);
 
   return (
-    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden grid-bg ${
+    <section id="home" className={`relative min-h-screen pt-20 overflow-hidden ${
       isDark ? 'bg-[#0a0a0f]' : 'bg-white'
     }`}>
-      {/* Glow blobs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-red-500/8 blur-[130px]" />
-        <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full bg-rose-500/6 blur-[100px]" />
-        {isDark && <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-red-800/20 blur-[80px]" />}
-      </div>
+      {/* Background split shape */}
+      <div className={`absolute top-0 left-0 w-[45%] h-full hidden lg:block rounded-br-[200px] ${
+        isDark ? 'bg-blue-900/40' : 'bg-blue-600'
+      }`} />
 
-      {/* Floating orbs */}
-      <div className="absolute top-20 right-20 w-3 h-3 rounded-full bg-red-400/50 animate-float" style={{ animationDelay: '0s' }} />
-      <div className="absolute top-40 right-48 w-2 h-2 rounded-full bg-rose-400/40 animate-float" style={{ animationDelay: '1s' }} />
-      <div className="absolute bottom-32 left-24 w-2 h-2 rounded-full bg-red-300/50 animate-float" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-48 left-48 w-3 h-3 rounded-full bg-rose-400/30 animate-float" style={{ animationDelay: '0.5s' }} />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 h-[calc(100vh-80px)] flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        
+        {/* Left side: Profile Image */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-start lg:pl-10 relative">
+          {/* Circular image wrapper */}
+          <div className={`relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] rounded-full border-[12px] shadow-2xl flex-shrink-0 overflow-hidden ${
+            isDark ? 'border-[#0a0a0f]' : 'border-white'
+          }`}>
+            <img 
+              src="/profile.jpg" 
+              alt="Sabarivasan S" 
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-
-        <div className="w-full">
-
-
-          <h1 className={`text-5xl sm:text-6xl md:text-8xl font-bold mb-4 leading-tight ${
+        {/* Right side: Content */}
+        <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-3 tracking-tight ${
             isDark ? 'text-white' : 'text-gray-900'
           }`}>
-            Sabarivasan{' '}
-            <span className="gradient-text">S</span>
+            Sabarivasan S
           </h1>
 
-          <div className="h-10 mb-6">
-            <p className={`text-xl sm:text-2xl font-medium ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>
-              <span className="text-red-500">{displayed}</span>
-              <span className="cursor-blink text-red-400 ml-0.5">|</span>
+          <div className="h-8 mb-6">
+            <p className={`text-lg sm:text-xl font-medium ${isDark ? 'text-slate-400' : 'text-gray-600'}`}>
+              <span className={isDark ? 'text-blue-400' : 'text-blue-600'}>{displayed}</span>
+              <span className="cursor-blink text-blue-400 ml-0.5">|</span>
             </p>
           </div>
 
-          <p className={`max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-10 ${
+          <p className={`text-sm sm:text-base leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0 ${
             isDark ? 'text-slate-400' : 'text-gray-500'
           }`}>
             B.Tech student in AI & Data Science building full-stack web apps and
@@ -83,31 +87,31 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <div className="flex items-center justify-center lg:justify-start gap-4 mb-10">
             <a
               href="#contact"
-              className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-500 text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-red-500/30"
+              className={`px-8 py-3 rounded text-sm font-bold tracking-wider text-white transition-all shadow-lg ${
+                isDark ? 'bg-blue-500 hover:bg-blue-600' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30'
+              }`}
             >
-              <Briefcase size={16} />
-              Hire Me
+              HIRE ME!
             </a>
             <a
               href="https://drive.google.com/file/d/1DeKhsV9okXe9p91lrFEfWbimhTQ8EFX-/view?usp=drivesdk"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 px-7 py-3.5 rounded-xl border font-semibold text-sm transition-all ${
+              className={`px-8 py-3 rounded border text-sm font-bold tracking-wider transition-all ${
                 isDark
-                  ? 'border-white/10 text-slate-300 hover:border-red-700 hover:text-red-400 hover:bg-red-950/20'
-                  : 'border-gray-200 text-gray-700 hover:border-red-300 hover:text-red-600 hover:bg-red-50'
+                  ? 'border-blue-500 text-blue-400 hover:bg-blue-950/30'
+                  : 'border-blue-600 text-blue-600 hover:bg-blue-50'
               }`}
             >
-              <Eye size={16} />
-              View Resume
+              RESUME
             </a>
           </div>
 
           {/* Social links */}
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center lg:justify-start gap-3">
             {[
               { icon: Github, href: 'https://github.com/kit2824bad132-spec', label: 'GitHub' },
               { icon: Linkedin, href: 'https://www.linkedin.com/in/sabarivasan-s-32484333a', label: 'LinkedIn' },
@@ -119,29 +123,19 @@ export default function Hero() {
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-all ${
+                className={`w-10 h-10 rounded border flex items-center justify-center transition-all ${
                   isDark
-                    ? 'border-white/10 text-slate-400 hover:text-red-400 hover:border-red-800 hover:bg-red-950/30'
-                    : 'border-gray-200 text-gray-400 hover:text-red-600 hover:border-red-300 hover:bg-red-50'
+                    ? 'border-white/10 text-slate-400 hover:text-blue-400 hover:border-blue-500'
+                    : 'border-gray-200 text-gray-500 hover:text-blue-600 hover:border-blue-400 hover:bg-blue-50'
                 }`}
               >
-                <Icon size={17} />
+                <Icon size={18} />
               </a>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Scroll cue */}
-      <a
-        href="#about"
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 transition-colors ${
-          isDark ? 'text-slate-600 hover:text-red-400' : 'text-gray-400 hover:text-red-600'
-        }`}
-      >
-        <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
-        <ArrowDown size={16} className="animate-bounce" />
-      </a>
+      </div>
     </section>
   );
 }
