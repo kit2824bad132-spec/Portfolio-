@@ -12,24 +12,24 @@ export default function Skills() {
   const isDark = theme === 'dark';
 
   const cardBase = isDark
-    ? 'bg-[#16161f] border-[#1e1e2e] hover:border-blue-900'
-    : 'bg-white border-gray-100 hover:border-blue-200 hover:shadow-blue-50';
+    ? 'bg-[#16161f] border-[#1e1e2e] hover:border-orange-900'
+    : 'bg-white border-gray-100 hover:border-orange-200 hover:shadow-orange-50';
 
   const getAccent = (accent: string, isDark: boolean) => {
     if (accent === 'red') {
       return {
-        icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
-        badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
+        icon: isDark ? 'text-orange-400 bg-orange-950/50 border-orange-800/50' : 'text-orange-600 bg-orange-50 border-orange-200',
+        badge: isDark ? 'bg-orange-950/40 text-orange-400 border-orange-800/40' : 'bg-orange-50 text-orange-700 border-orange-200',
       };
     }
     return {
-      icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
-      badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
+      icon: isDark ? 'text-orange-400 bg-orange-950/50 border-orange-800/50' : 'text-orange-600 bg-orange-50 border-orange-200',
+      badge: isDark ? 'bg-orange-950/40 text-orange-400 border-orange-800/40' : 'bg-orange-50 text-orange-700 border-orange-200',
     };
   };
 
   return (
-    <section id="skills" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-blue-50/40'}`}>
+    <section id="skills" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-orange-50/40'}`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 reveal">
           <h2 className={`text-3xl sm:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>

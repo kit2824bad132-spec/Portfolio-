@@ -11,19 +11,19 @@ export default function Certifications() {
 
   const getColors = (color: string) => {
     if (color === 'red') return {
-      card: isDark ? 'hover:border-blue-800' : 'hover:border-blue-300 hover:shadow-blue-50',
-      icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
-      badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
+      card: isDark ? 'hover:border-orange-800' : 'hover:border-orange-300 hover:shadow-orange-50',
+      icon: isDark ? 'text-orange-400 bg-orange-950/50 border-orange-800/50' : 'text-orange-600 bg-orange-50 border-orange-200',
+      badge: isDark ? 'bg-orange-950/40 text-orange-400 border-orange-800/40' : 'bg-orange-50 text-orange-700 border-orange-200',
     };
     return {
-      card: isDark ? 'hover:border-blue-800' : 'hover:border-blue-300 hover:shadow-blue-50',
-      icon: isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200',
-      badge: isDark ? 'bg-blue-950/40 text-blue-400 border-blue-800/40' : 'bg-blue-50 text-blue-700 border-blue-200',
+      card: isDark ? 'hover:border-orange-800' : 'hover:border-orange-300 hover:shadow-orange-50',
+      icon: isDark ? 'text-orange-400 bg-orange-950/50 border-orange-800/50' : 'text-orange-600 bg-orange-50 border-orange-200',
+      badge: isDark ? 'bg-orange-950/40 text-orange-400 border-orange-800/40' : 'bg-orange-50 text-orange-700 border-orange-200',
     };
   };
 
   return (
-    <section id="certifications" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-blue-50/30'}`}>
+    <section id="certifications" className={`py-24 px-6 ${isDark ? 'bg-[#0d0d14]' : 'bg-orange-50/30'}`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 reveal">
           <h2 className={`text-3xl sm:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>

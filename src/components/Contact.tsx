@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Send, ExternalLink, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, ExternalLink, X, Eye } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const contactItems = [
@@ -30,16 +30,16 @@ export default function Contact() {
 
   const card = isDark ? 'bg-[#16161f] border-[#1e1e2e]' : 'bg-white border-gray-100';
   const inputCls = isDark
-    ? 'bg-[#1a1a28] border-white/10 text-slate-100 placeholder-slate-600 focus:border-blue-500 focus:ring-blue-500/20'
-    : 'bg-white border-gray-200 text-gray-900 placeholder-gray-300 focus:border-blue-400 focus:ring-blue-100';
+    ? 'bg-[#1a1a28] border-white/10 text-slate-100 placeholder-slate-600 focus:border-orange-500 focus:ring-orange-500/20'
+    : 'bg-white border-gray-200 text-gray-900 placeholder-gray-300 focus:border-orange-400 focus:ring-orange-100';
 
   const getIconCls = (color: string) => color === 'red'
-    ? isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200'
-    : isDark ? 'text-blue-400 bg-blue-950/50 border-blue-800/50' : 'text-blue-600 bg-blue-50 border-blue-200';
+    ? isDark ? 'text-orange-400 bg-orange-950/50 border-orange-800/50' : 'text-orange-600 bg-orange-50 border-orange-200'
+    : isDark ? 'text-orange-400 bg-orange-950/50 border-orange-800/50' : 'text-orange-600 bg-orange-50 border-orange-200';
 
   const getValueCls = (color: string) => color === 'red'
-    ? isDark ? 'text-blue-400' : 'text-blue-700'
-    : isDark ? 'text-blue-400' : 'text-blue-700';
+    ? isDark ? 'text-orange-400' : 'text-orange-700'
+    : isDark ? 'text-orange-400' : 'text-orange-700';
 
   return (
     <>
@@ -59,7 +59,7 @@ export default function Contact() {
             <button
               onClick={() => setModalOpen(false)}
               className={`absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg transition-all ${
-                isDark ? 'text-slate-400 hover:text-blue-400 hover:bg-blue-950/30' : 'text-gray-400 hover:text-blue-600 hover:bg-blue-50'
+                isDark ? 'text-slate-400 hover:text-orange-400 hover:bg-orange-950/30' : 'text-gray-400 hover:text-orange-600 hover:bg-orange-50'
               }`}
             >
               <X size={18} />
@@ -99,7 +99,7 @@ export default function Contact() {
             <button
               onClick={handleSend}
               disabled={!form.name || !form.email || !form.message}
-              className="mt-6 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-blue-500/20 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-6 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-orange-500/20 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <Send size={15} /> Send Message
             </button>
@@ -114,6 +114,16 @@ export default function Contact() {
             <p className={`mt-4 max-w-xl mx-auto text-sm sm:text-base ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>
               Open to internship opportunities, collaborative projects, and interesting conversations.
             </p>
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={() => setModalOpen(true)}
+                className={`px-8 py-3 rounded text-sm font-bold tracking-wider text-white transition-all shadow-lg ${
+                  isDark ? 'bg-orange-500 hover:bg-orange-600' : 'bg-orange-600 hover:bg-orange-700 shadow-orange-500/30'
+                }`}
+              >
+                HIRE ME!
+              </button>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 reveal">
@@ -125,8 +135,8 @@ export default function Contact() {
                   <div className={`group flex items-center gap-4 border rounded-2xl p-5 transition-all duration-300 ${card} ${
                     item.href ? 'cursor-pointer hover:shadow-sm' : ''
                   } ${item.color === 'red'
-                    ? isDark ? 'hover:border-blue-800' : 'hover:border-blue-300'
-                    : isDark ? 'hover:border-blue-800' : 'hover:border-blue-300'
+                    ? isDark ? 'hover:border-orange-800' : 'hover:border-orange-300'
+                    : isDark ? 'hover:border-orange-800' : 'hover:border-orange-300'
                   }`}>
                     <div className={`w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105 ${getIconCls(item.color)}`}>
                       <Icon size={19} />
@@ -150,8 +160,8 @@ export default function Contact() {
                     aria-label={label}
                     className={`flex-1 flex items-center justify-center gap-2 py-3 border rounded-xl text-sm font-medium transition-all ${card} ${
                       isDark
-                        ? 'text-slate-400 hover:text-blue-400 hover:border-blue-800 hover:bg-blue-950/20'
-                        : 'text-gray-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50'
+                        ? 'text-slate-400 hover:text-orange-400 hover:border-orange-800 hover:bg-orange-950/20'
+                        : 'text-gray-500 hover:text-orange-600 hover:border-orange-200 hover:bg-orange-50'
                     }`}
                   >
                     <Icon size={16} /> {label}
@@ -161,7 +171,7 @@ export default function Contact() {
 
               <button
                 onClick={() => setModalOpen(true)}
-                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-blue-500/20"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-orange-500/20"
               >
                 <Send size={16} /> Send Message
               </button>
@@ -169,13 +179,13 @@ export default function Contact() {
 
             {/* Right: CTA card */}
             <div className={`border rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden ${
-              isDark ? 'bg-[#12121a] border-[#1e1e2e]' : 'bg-blue-50 border-blue-100'
+              isDark ? 'bg-[#12121a] border-[#1e1e2e]' : 'bg-orange-50 border-orange-100'
             }`}>
-              <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-blue-200/20 dark:bg-blue-900/10 blur-2xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-blue-200/10 blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-orange-200/20 dark:bg-orange-900/10 blur-2xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-orange-200/10 blur-2xl pointer-events-none" />
 
               <div className="relative">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center mb-6 text-lg font-bold text-white shadow-md shadow-blue-300/30">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-600 to-orange-500 flex items-center justify-center mb-6 text-lg font-bold text-white shadow-md shadow-orange-300/30">
                   SS
                 </div>
                 <h3 className={`font-bold text-xl mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>Open to Opportunities</h3>
@@ -187,14 +197,14 @@ export default function Contact() {
                 <div className="space-y-3">
                   {['Full-Stack Development', 'AI / ML Engineering', 'Competitive Programming', 'Open Source Collaboration'].map(item => (
                     <div key={item} className={`flex items-center gap-2 text-sm ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" />
                       {item}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className={`relative mt-8 pt-6 border-t ${isDark ? 'border-white/5' : 'border-blue-200'}`}>
+              <div className={`relative mt-8 pt-6 border-t ${isDark ? 'border-white/5' : 'border-orange-200'}`}>
                 <p className={`text-xs ${isDark ? 'text-slate-600' : 'text-gray-400'}`}>
                   Based in Coimbatore, India · Available for remote & on-site roles
                 </p>

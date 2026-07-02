@@ -41,13 +41,13 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
 
   return (
     <div className={`min-h-screen flex items-center justify-center p-4 relative overflow-hidden transition-all duration-300 ${
-      isDark ? 'bg-[#0a0a0f]' : 'bg-gradient-to-br from-slate-50 via-blue-50 to-blue-50'
+      isDark ? 'bg-[#0a0a0f]' : 'bg-gradient-to-br from-slate-50 via-orange-50 to-orange-50'
     }`}>
       {/* Background orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-blue-500/10 blur-[120px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-500/10 blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
-        <div className={`absolute top-0 right-0 w-1/2 h-1/2 ${isDark ? 'bg-blue-950/20' : 'bg-blue-100/30'} rounded-bl-full blur-3xl`} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-orange-500/10 blur-[120px] animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-orange-500/10 blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
+        <div className={`absolute top-0 right-0 w-1/2 h-1/2 ${isDark ? 'bg-orange-950/20' : 'bg-orange-100/30'} rounded-bl-full blur-3xl`} />
       </div>
 
       {/* Grid pattern */}
@@ -71,12 +71,12 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
           : 'bg-white/80 backdrop-blur-xl border border-white/60'
       }`}>
         {/* Top gradient bar */}
-        <div className="h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400" />
+        <div className="h-1.5 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400" />
 
         <div className="p-8 sm:p-10">
           {/* Logo */}
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/25">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
               <Code2 size={20} className="text-white" />
             </div>
             <div>
@@ -90,7 +90,7 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
 
           {/* Error */}
           {error && (
-            <div className="flex items-start gap-2 mb-5 px-4 py-3 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 text-blue-600 text-sm animate-fade-in-up">
+            <div className="flex items-start gap-2 mb-5 px-4 py-3 rounded-xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-900 text-orange-600 text-sm animate-fade-in-up">
               <AlertCircle size={16} className="mt-0.5 flex-shrink-0" />
               {error}
             </div>
@@ -108,7 +108,7 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
                   onChange={e => setEmail(e.target.value)}
                   placeholder="admin@portfolio.com"
                   required
-                  className={`w-full pl-10 pr-4 py-3 rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 ${
+                  className={`w-full pl-10 pr-4 py-3 rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 ${
                     isDark
                       ? 'bg-[#1a1a28] border border-white/10 text-white placeholder-slate-600'
                       : 'bg-white border border-gray-200 text-gray-900 placeholder-gray-300'
@@ -128,7 +128,7 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className={`w-full pl-10 pr-12 py-3 rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 ${
+                  className={`w-full pl-10 pr-12 py-3 rounded-xl text-sm transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 ${
                     isDark
                       ? 'bg-[#1a1a28] border border-white/10 text-white placeholder-slate-600'
                       : 'bg-white border border-gray-200 text-gray-900 placeholder-gray-300'
@@ -157,7 +157,7 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
                   />
                   <div className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${
                     remember
-                      ? 'bg-blue-600 border-blue-600'
+                      ? 'bg-orange-600 border-orange-600'
                       : isDark ? 'border-slate-600 bg-transparent' : 'border-gray-300 bg-white'
                   }`}>
                     {remember && (
@@ -171,7 +171,7 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
               </label>
               <button
                 type="button"
-                className="text-sm font-medium text-blue-600 hover:text-blue-500 transition-colors"
+                className="text-sm font-medium text-orange-600 hover:text-orange-500 transition-colors"
                 onClick={() => alert('Password reset link sent to your email!')}
               >
                 Forgot password?
@@ -182,8 +182,8 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-sm
-                hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-blue-500/25
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold text-sm
+                hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-orange-500/25
                 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (

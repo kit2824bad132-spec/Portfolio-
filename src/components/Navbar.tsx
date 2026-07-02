@@ -55,8 +55,8 @@ export default function Navbar({ onAdminClick }: NavbarProps) {
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center font-bold text-xl tracking-wide group">
-          <span className={`${isDark ? 'text-blue-400' : 'text-blue-600'} mr-1`}>PORT</span>
-          <span className={`px-3 py-1 rounded-full text-white text-sm ${isDark ? 'bg-blue-500' : 'bg-blue-600'}`}>FOLIO</span>
+          <span className={`${isDark ? 'text-orange-400' : 'text-orange-600'} mr-1`}>PORT</span>
+          <span className={`px-3 py-1 rounded-full text-white text-sm ${isDark ? 'bg-orange-500' : 'bg-orange-600'}`}>FOLIO</span>
         </a>
 
         {/* Desktop links - Centered */}
@@ -67,10 +67,10 @@ export default function Navbar({ onAdminClick }: NavbarProps) {
                 href={l.href}
                 className={`nav-link text-xs font-bold tracking-wider transition-colors ${
                   active === l.href
-                    ? 'text-white bg-blue-600 px-3 py-1.5 rounded-md'
+                    ? 'text-white bg-orange-600 px-3 py-1.5 rounded-md'
                     : isDark
-                    ? 'text-slate-400 hover:text-blue-400'
-                    : 'text-gray-500 hover:text-blue-600'
+                    ? 'text-slate-400 hover:text-orange-400'
+                    : 'text-gray-500 hover:text-orange-600'
                 }`}
               >
                 {l.label}
@@ -96,14 +96,16 @@ export default function Navbar({ onAdminClick }: NavbarProps) {
 
           {/* Hire Me Button */}
           <a
-            href="#contact"
+            href="https://drive.google.com/uc?export=download&id=1DeKhsV9okXe9p91lrFEfWbimhTQ8EFX-"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`flex items-center justify-center px-6 py-2.5 rounded text-sm font-bold tracking-wider text-white transition-all shadow-md ${
               isDark
-                ? 'bg-blue-500 hover:bg-blue-600 shadow-blue-500/20'
-                : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30'
+                ? 'bg-orange-500 hover:bg-orange-600 shadow-orange-500/20'
+                : 'bg-orange-600 hover:bg-orange-700 shadow-orange-500/30'
             }`}
           >
-            HIRE ME!
+            DOWNLOAD RESUME
           </a>
         </div>
 
@@ -140,7 +142,7 @@ export default function Navbar({ onAdminClick }: NavbarProps) {
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className={`block text-xs font-bold tracking-wider transition-colors ${
-                    isDark ? 'text-slate-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
+                    isDark ? 'text-slate-400 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'
                   }`}
                 >
                   {l.label}
@@ -149,13 +151,15 @@ export default function Navbar({ onAdminClick }: NavbarProps) {
             ))}
             <li className="pt-4 border-t mt-2" style={{ borderColor: isDark ? '#1e1e2e' : '#f3f4f6' }}>
               <a
-                href="#contact"
+                href="https://drive.google.com/uc?export=download&id=1DeKhsV9okXe9p91lrFEfWbimhTQ8EFX-"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className={`flex items-center justify-center w-full px-6 py-3 rounded text-sm font-bold tracking-wider text-white transition-all shadow-md ${
-                  isDark ? 'bg-blue-500' : 'bg-blue-600'
+                  isDark ? 'bg-orange-500' : 'bg-orange-600'
                 }`}
               >
-                HIRE ME!
+                DOWNLOAD RESUME
               </a>
             </li>
           </ul>

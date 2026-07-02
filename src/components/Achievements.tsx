@@ -50,22 +50,22 @@ const platforms = [
 
 const colorMap: Record<string, { card: string; icon: string; tag: string; accent: string }> = {
   red: {
-    card: 'hover:border-blue-300',
-    icon: 'text-blue-600 bg-blue-50 border-blue-200',
-    tag: 'bg-blue-50 text-blue-700 border-blue-200',
-    accent: 'text-blue-600',
+    card: 'hover:border-orange-300',
+    icon: 'text-orange-600 bg-orange-50 border-orange-200',
+    tag: 'bg-orange-50 text-orange-700 border-orange-200',
+    accent: 'text-orange-600',
   },
   rose: {
-    card: 'hover:border-blue-300',
-    icon: 'text-blue-600 bg-blue-50 border-blue-200',
-    tag: 'bg-blue-50 text-blue-700 border-blue-200',
-    accent: 'text-blue-600',
+    card: 'hover:border-orange-300',
+    icon: 'text-orange-600 bg-orange-50 border-orange-200',
+    tag: 'bg-orange-50 text-orange-700 border-orange-200',
+    accent: 'text-orange-600',
   },
 };
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-24 px-6 bg-blue-50/40">
+    <section id="achievements" className="py-24 px-6 bg-orange-50/40">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Hackathons & Competitive Programming</h2>
@@ -77,7 +77,7 @@ export default function Achievements() {
         {/* Hackathons */}
         <div className="mb-14">
           <h3 className="text-gray-900 font-semibold text-lg mb-6 flex items-center gap-2">
-            <Trophy size={18} className="text-blue-600" />
+            <Trophy size={18} className="text-orange-600" />
             Hackathons
           </h3>
           <div className="grid md:grid-cols-2 gap-5">
@@ -113,7 +113,7 @@ export default function Achievements() {
         {/* Competitive Programming */}
         <div>
           <h3 className="text-gray-900 font-semibold text-lg mb-6 flex items-center gap-2">
-            <Code size={18} className="text-blue-600" />
+            <Code size={18} className="text-orange-600" />
             Competitive Programming
           </h3>
           <div className="grid sm:grid-cols-3 gap-5 mb-8">
@@ -142,8 +142,8 @@ export default function Achievements() {
           <div className="bg-white border border-gray-100 rounded-2xl p-6">
             <p className="text-gray-600 text-sm leading-relaxed">
               Active competitive programmer who regularly solves problems involving{' '}
-              <span className="text-blue-600 font-medium">arrays, linked lists, trees, graphs,</span>{' '}
-              <span className="text-blue-600 font-medium">dynamic programming,</span> and greedy techniques.
+              <span className="text-orange-600 font-medium">arrays, linked lists, trees, graphs,</span>{' '}
+              <span className="text-orange-600 font-medium">dynamic programming,</span> and greedy techniques.
               Maintains profiles across multiple platforms and consistently participates in coding contests
               to sharpen algorithmic thinking and problem-solving speed.
             </p>
