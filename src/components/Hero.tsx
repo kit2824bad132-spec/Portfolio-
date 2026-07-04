@@ -44,7 +44,7 @@ export default function Hero() {
       isDark ? 'bg-[#0a0a0f]' : 'bg-white'
     }`}>
       {/* Background split shape */}
-      <div className={`absolute top-0 left-0 w-[45%] h-full hidden lg:block rounded-br-[200px] ${
+      <div className={`absolute top-0 left-0 w-[45%] h-full hidden lg:block rounded-br-[200px] pointer-events-none ${
         isDark ? 'bg-orange-900/40' : 'bg-orange-600'
       }`} />
 
@@ -63,9 +63,9 @@ export default function Hero() {
             />
           </div>
 
-          <div className="flex flex-col items-center w-full max-w-[400px] gap-5">
+          <div className="flex flex-col items-center w-full max-w-[480px] gap-5">
             {/* Social links */}
-            <div className="flex flex-wrap items-center justify-center gap-3 w-full">
+            <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-4 w-full relative z-20">
               {[
                 { icon: Github, href: 'https://github.com/kit2824bad132-spec', label: 'GitHub' },
                 { icon: Linkedin, href: 'https://www.linkedin.com/in/sabarivasan-s-32484333a', label: 'LinkedIn' },
@@ -80,17 +80,24 @@ export default function Hero() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 flex items-center justify-center transition-all border-b-2 border-orange-500 ${
+                  className={`flex flex-col items-center gap-1.5 px-2 py-2 transition-all cursor-pointer group ${
                     isDark
                       ? 'text-slate-300 hover:text-white'
                       : 'text-gray-900 hover:text-black'
                   }`}
                 >
-                  <Icon size={18} />
+                  <span className="w-10 h-10 flex items-center justify-center border-b-2 border-orange-500">
+                    <Icon size={18} />
+                  </span>
+                  <span className={`text-[10px] font-bold tracking-wide ${
+                    isDark ? 'text-slate-300 group-hover:text-orange-400' : 'text-white group-hover:text-gray-900'
+                  }`}>
+                    {label}
+                  </span>
                 </a>
               ))}
             </div>
-            
+
             {/* Problems Solved Column */}
             <div className={`w-full max-w-[320px] flex flex-col items-center gap-1.5 p-4 rounded-2xl border ${
               isDark ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'
@@ -131,7 +138,7 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex items-center justify-center lg:justify-start gap-4 mb-10">
+          <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
             <button
               onClick={() => setShowResumeModal(true)}
               className={`px-8 py-3 rounded text-sm font-bold tracking-wider transition-all border-2 flex items-center justify-center gap-2 ${
@@ -144,6 +151,8 @@ export default function Hero() {
               RESUME
             </button>
           </div>
+
+
 
 
 
