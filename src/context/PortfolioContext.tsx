@@ -50,6 +50,24 @@ interface PortfolioContextType {
 
 const defaultProjects: ProjectData[] = [
   {
+    id: 4,
+    iconName: 'Cpu',
+    title: 'Interview Fear Analyzer',
+    subtitle: 'AI-Powered Technical Assessment Platform',
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSockets'],
+    accent: 'rose',
+    description: 'Comprehensive AI interview platform featuring live proctoring, automated grading, resume analysis, and real-time proctoring with anti-cheat detection.',
+    points: [
+      'Real-time webcam frame streaming via WebSockets',
+      'Heuristic-based auto-grading for text and code questions',
+      'Role-based access with secure zero-based analytics dashboards',
+      'Modern, responsive UI with anti-cheat detection and routing',
+    ],
+    image: 'https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=800',
+    demoUrl: '',
+    githubUrl: 'https://github.com/kit2824bad132-spec/Interview-Fear-Analyzer',
+  },
+  {
     id: 1,
     iconName: 'Cpu',
     title: 'AgroIntel-AI',
@@ -132,7 +150,7 @@ const PortfolioContext = createContext<PortfolioContextType | undefined>(undefin
 
 export function PortfolioProvider({ children }: { children: ReactNode }) {
   const [projects, setProjects] = useState<ProjectData[]>(() => {
-    const saved = localStorage.getItem('portfolio-projects');
+    const saved = localStorage.getItem('portfolio-projects-v3');
     return saved ? JSON.parse(saved) : defaultProjects;
   });
 
@@ -152,7 +170,7 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    localStorage.setItem('portfolio-projects', JSON.stringify(projects));
+    localStorage.setItem('portfolio-projects-v3', JSON.stringify(projects));
   }, [projects]);
 
   useEffect(() => {
